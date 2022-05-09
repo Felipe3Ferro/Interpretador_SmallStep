@@ -1,8 +1,10 @@
 package com.gurizada.comando.filho;
 
 import com.gurizada.Estado;
+import com.gurizada.NumUBool;
 import com.gurizada.comando.Comando;
 import com.gurizada.exp.Exp;
+import com.gurizada.exp.filho.Bool;
 import com.gurizada.exp.filho.Num;
 import com.gurizada.exp.filho.Var;
 
@@ -22,10 +24,14 @@ public class Atribuicao extends Comando {
 
     @Override
     public Comando transicao(Estado s) {
-        if (expressao instanceof Num) {
-            s.atualizar(variavel.getNome(), ((Num)expressao).getValor());
+        if ((expressao instanceof Num)){
+            s.atualizar(variavel.getNome(), new NumUBool(((Num)expressao).getValor()));
             return new Skip();
-        } else {
+        }else if((expressao instanceof Bool)){
+            s.atualizar(variavel.getNome(), new NumUBool(((Bool)expressao).getValor()));
+            return new Skip();
+        }
+         else {
             Exp exp = expressao.transicao(s);
             return new Atribuicao(variavel, exp);
         }

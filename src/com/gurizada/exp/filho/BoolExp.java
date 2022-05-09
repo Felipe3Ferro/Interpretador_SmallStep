@@ -3,6 +3,7 @@ package com.gurizada.exp.filho;
 import com.gurizada.Estado;
 import com.gurizada.exp.Exp;
 
+
 public class BoolExp extends Exp {
     private Exp exp1;
     private Exp exp2;
@@ -19,13 +20,14 @@ public class BoolExp extends Exp {
         this.exp1 = exp1;
     }
 
+
     @Override
     public Exp transicao(Estado s) {
         if (bop.getBop().equals("!")) {
             if (!(exp1 instanceof Bool)) {
                 return new BoolExp(bop, exp1.transicao(s));
             } else {
-                return new Bool(!((Bool) exp1).getBool());
+                return new Bool(!((Bool) exp1).getValor());
             }
 //        } else if () {
 //

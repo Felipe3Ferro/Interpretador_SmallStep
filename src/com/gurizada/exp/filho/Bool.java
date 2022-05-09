@@ -11,9 +11,10 @@ public class Bool extends Exp {
         this.bool = bool;
     }
 
-    public Boolean getBool() {
+    public Boolean getValor() {
         return bool;
     }
+    
 
     @Override
     public String toString() {

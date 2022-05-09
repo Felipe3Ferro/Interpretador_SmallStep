@@ -4,16 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Estado {
-    private Map<String, Integer> mapeamento = new HashMap<>();
-    public void atualizar(String variavel, int valor) {
+    private Map<String, NumUBool> mapeamento = new HashMap<>();
+    public void atualizar(String variavel, NumUBool valor) {
         mapeamento.replace(variavel,valor);
     }
-    public void adicionar(String variavel, int valor) {
+    public void adicionar(String variavel, NumUBool valor) {
         mapeamento.put(variavel,valor);
     }
-    public int ler(String variavel) {
-        Integer valor = mapeamento.get(variavel);
-        if (valor == null) return 0;
+    public NumUBool ler(String variavel) {
+        NumUBool valor = mapeamento.get(variavel);
+        if (valor == null) return null;
         return valor;
     }
 

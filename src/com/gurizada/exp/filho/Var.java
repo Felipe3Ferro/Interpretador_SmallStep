@@ -18,6 +18,11 @@ public class Var extends Exp {
 
     @Override
     public Exp transicao(Estado s) {
-        return new Num(s.ler(nome));
+        if(s.ler(nome).getClass().getSimpleName() == "Integer"){
+            return new Num(s.ler(nome).getInteger());
+        }else{
+            return new Bool(s.ler(nome).getBool());
+        }
+            
     }
 }

@@ -11,6 +11,13 @@ public class NumUBool {
     public NumUBool(Integer integer) {
         this.integer = integer;
     }
+    
+    public void Verifica_Tipo(){
+        if(this.getInteger() == null){
+
+        }
+    }
+
 
     public Integer getInteger() {
         return integer;
@@ -18,5 +25,14 @@ public class NumUBool {
 
     public Boolean getBool() {
         return bool;
+    }
+
+    @Override
+    public String toString(){
+        if(this.getClass().getSimpleName() == "Integer"){
+            return ""+this.getInteger();
+        }else{
+            return ""+this.getBool();
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.gurizada.exp.filho;
 
 import com.gurizada.Estado;
+import com.gurizada.NumUBool;
 import com.gurizada.exp.Exp;
 
 public class Num extends Exp {
@@ -10,6 +11,9 @@ public class Num extends Exp {
     }
     public int getValor() {
         return valor;
+    }
+    public Num (NumUBool v){
+        valor = v.getInteger();
     }
 
     @Override
