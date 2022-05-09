@@ -29,7 +29,7 @@ public class NumUBool {
 
     @Override
     public String toString(){
-        if(this.getClass().getSimpleName() == "Integer"){
+        if(this.getInteger() != null){
             return ""+this.getInteger();
         }else{
             return ""+this.getBool();

@@ -14,8 +14,6 @@ public class App {
         Estado s = new Estado();
         NumUBool n = new NumUBool(true); 
         s.adicionar("x", n);
-        NumUBool n1 = new NumUBool(3);
-        s.atualizar("x", n1);
         System.out.println("<"+ exp+","+s+">");
         while (!(exp instanceof Num) && !(exp instanceof Bool)) {
             exp = Intepretador.smallStep(exp, s);
