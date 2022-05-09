@@ -10,7 +10,7 @@ import com.gurizada.exp.filho.Var;
 
 public class App {
     public static void main(String[] args) {
-        Exp exp = new BoolExp(new Bop("||"), new Bool(true), new Bool(false));
+        Exp exp = new BoolExp(new Bop("||"), (new BoolExp(new Bop("!"), new Var("x"))), new Bool(true));
         Estado s = new Estado();
         NumUBool n = new NumUBool(true); 
         s.adicionar("x", n);
