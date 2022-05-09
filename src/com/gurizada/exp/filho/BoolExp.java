@@ -9,7 +9,7 @@ public class BoolExp extends Exp {
     private Exp exp2;
     private Bop bop;
 
-    public BoolExp(Exp exp1, Exp exp2, Bop bop) {
+    public BoolExp(Bop bop,Exp exp1, Exp exp2) {
         this.exp1 = exp1;
         this.exp2 = exp2;
         this.bop = bop;
@@ -29,13 +29,25 @@ public class BoolExp extends Exp {
             } else {
                 return new Bool(!((Bool) exp1).getValor());
             }
-//        } else if () {
-//
-//        }else {
-//
-//        }
+        } else if (bop.getBop().equals("&&")) {
+            if (!(exp1 instanceof Bool)) {
+                return new BoolExp(bop, exp1.transicao(s),exp2);
+            } else if(!(exp2 instanceof Bool)){
+                return new BoolExp(bop,exp1,exp2.transicao(s));
+            }else {
+                return new Bool(((Bool) exp1).getValor() && ((Bool) exp2).getValor());
+            }
+        } else if (bop.getBop().equals("||")) {
+            if (!(exp1 instanceof Bool)) {
+                return new BoolExp(bop, exp1.transicao(s),exp2);
+            } else if(!(exp2 instanceof Bool)){
+                return new BoolExp(bop,exp1,exp2.transicao(s));
+            }else {
+                return new Bool(((Bool) exp1).getValor() || ((Bool) exp2).getValor());
+            }
+        }else{
+            return this;
         }
-        return null;
     }
 
     @Override
