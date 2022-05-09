@@ -1,3 +1,8 @@
+package com.gurizada.exp.filho;
+
+import com.gurizada.Estado;
+import com.gurizada.exp.Exp;
+
 public class Soma extends Exp {
     private Exp expEsq;
     private Exp expDir;

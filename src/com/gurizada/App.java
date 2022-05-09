@@ -1,18 +1,20 @@
-public class Principal {
+package com.gurizada;
+
+import com.gurizada.exp.Exp;
+import com.gurizada.exp.filho.Num;
+import com.gurizada.exp.filho.Soma;
+import com.gurizada.exp.filho.Var;
+
+public class App {
     public static void main(String[] args) {
-        //Montar uma árvore de sintaxe abstrata
-        //1+x
-        Exp exp = new Soma(new Num(1), new Var("x"));
-        //Montar o estado inicial
+        Exp exp = new Soma(new Var("y"), new Var("x"));
         Estado s = new Estado();
         s.adicionar("x",1);
-        //Executar o interpretador bigstep
-        System.out.println(exp);
-        System.out.println(s);
+        s.adicionar("y",2);
+        System.out.println("<"+ exp+","+s+">");
         exp = Intepretador.smallStep(exp, s);
         while (!(exp instanceof Num)) {
-            System.out.println(exp);
-            System.out.println(s);
+            System.out.println("<"+ exp+","+s+">");
             exp = Intepretador.smallStep(exp, s);
         }
         System.out.println("Final:");

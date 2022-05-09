@@ -1,4 +1,9 @@
-public class Skip extends Comando{
+package com.gurizada.comando.filho;
+
+import com.gurizada.comando.Comando;
+import com.gurizada.Estado;
+
+public class Skip extends Comando {
     @Override
     public Comando transicao(Estado s) {
         return this;

@@ -1,3 +1,8 @@
+package com.gurizada.exp.filho;
+
+import com.gurizada.Estado;
+import com.gurizada.exp.Exp;
+
 public class Var extends Exp {
     private String nome;
     public Var(String n) {
