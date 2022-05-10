@@ -70,10 +70,17 @@ public class If extends Comando{
 
     @Override
     public String toString(){
+        if(c1 instanceof Skip){
+            if(c2 != null)
+                return "if " + b + " then " + c1 + " else " + c2;
+            else
+                return "if " + b + " then " + c1;
+        }else{
         if(c2 != null)
             return "if " + b + " then " + c1 + " else " + c2;
         else
             return "if " + b + " then " + c1;
+        }
     }
 }
 

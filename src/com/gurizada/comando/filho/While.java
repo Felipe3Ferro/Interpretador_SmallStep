@@ -32,14 +32,6 @@ public class While extends Comando{
 
     @Override
     public Comando transicao(Estado s){
-        Exp bAux = b;
-        /*
-        if(!(b instanceof Bool)){
-            while(!(b instanceof Bool)){
-                b = b.transicao(s);
-            }
-        }
-        */
         return new If(b,new Sequencial(c, new While(b, c)), new Skip());
     }
 }
