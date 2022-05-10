@@ -24,7 +24,7 @@ public class Inc extends Comando{
 
     @Override
     public Comando transicao(Estado s) {
-        return new Atribuicao(var, new Soma(var,new Num(1)));
+        return new Atribuicao(var, new Soma(var,new Num(1))).transicao(s);
     }
 
     @Override

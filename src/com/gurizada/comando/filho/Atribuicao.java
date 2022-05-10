@@ -33,7 +33,7 @@ public class Atribuicao extends Comando {
         }
          else {
             Exp exp = expressao.transicao(s);
-            return new Atribuicao(variavel, exp);
+            return new Atribuicao(variavel, exp).transicao(s);
         }
     }
 }

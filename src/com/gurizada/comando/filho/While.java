@@ -3,6 +3,7 @@ package com.gurizada.comando.filho;
 import com.gurizada.Estado;
 import com.gurizada.comando.Comando;
 import com.gurizada.exp.Exp;
+import com.gurizada.exp.filho.Bool;
 
 public class While extends Comando{
 
@@ -26,11 +27,19 @@ public class While extends Comando{
 
     @Override
     public String toString(){
-        return "while " + b + "do" + c;
+        return "while " + b + " do " + c;
     }
 
     @Override
     public Comando transicao(Estado s){
-        return new If(b,new Sequencial(c.transicao(s), new While(b, c)), new Skip());
+        Exp bAux = b;
+        /*
+        if(!(b instanceof Bool)){
+            while(!(b instanceof Bool)){
+                b = b.transicao(s);
+            }
+        }
+        */
+        return new If(b,new Sequencial(c, new While(b, c)), new Skip());
     }
 }
