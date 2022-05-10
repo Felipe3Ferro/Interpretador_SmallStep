@@ -33,4 +33,9 @@ public class Sequencial extends Comando{
             return new Skip();
         }
     }
+
+    @Override
+    public String toString(){
+        return c1 + ";" + c2;
+    }
 }

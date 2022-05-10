@@ -11,6 +11,7 @@ public class Bool extends Exp {
         this.bool = bool;
     }
 
+    
     public Boolean getValor() {
         return bool;
     }

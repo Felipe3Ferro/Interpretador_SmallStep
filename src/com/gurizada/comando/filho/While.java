@@ -24,9 +24,13 @@ public class While extends Comando{
         return c;
     }
 
+    @Override
+    public String toString(){
+        return "while " + b + "do" + c;
+    }
 
     @Override
     public Comando transicao(Estado s){
-        return this;
+        return new If(b,new Sequencial(c.transicao(s), new While(b, c)), new Skip());
     }
 }
