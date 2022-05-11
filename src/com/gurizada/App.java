@@ -21,26 +21,26 @@ import com.gurizada.exp.filho.Var;
 public class App {
     public static void main(String[] args) {
         Exp exp = new Soma(new Var("x"), new Num(4));
-        Comando c = new While(new BoolExp(new Bop(">"),new Var("x"),new Var("y")),new Inc(new Var("y")));
+        Comando c = new Any(new Var("x"));
         Estado s = new Estado();
         NumUBool n = new NumUBool(3); 
         NumUBool n1 = new NumUBool(2);
         s.adicionar("x", n);
         s.adicionar("y", n1);
-        System.out.println("<"+ c+","+s+">");
-        /*while (!(exp instanceof Num) && !(exp instanceof Bool)) {
-            c = Intepretador.smallStep(c, s);
-            System.out.println("<"+ exp+","+s+">");
-        }*/
+        System.out.println("Teste: <"+ c+","+s+">");
         while (!(c instanceof Skip)){
             c = Intepretador.smallStep(c, s);
             System.out.println("<"+ c +","+ s +">");
         }
         System.out.println("Final:" +  "<"+ c+","+s+">");
+    
+        System.out.println("--------------------------------------------------------------");
+    
     }
 
     /*
-    Teste; <x := 5 * x;y := x - y,[x -> 3, y -> 2]>
+    COLAR DENTRO DA MAIN O CÓDIGO A PARTIR DO EXP
+    Teste:  <x := 5 * x;y := x - y,[x -> 3, y -> 2]>
     Exp exp = new Soma(new Var("x"), new Num(4));
         Comando c1 = new Atribuicao(new Var("x"), new Multiplicacao(new Num(5), new Var("x")));
         Comando c2 = new Atribuicao(new Var("y"), new Subtracao(new Var("x"), new Var("y")));
@@ -49,14 +49,65 @@ public class App {
     */
 
     /*
+    COLAR DENTRO DA MAIN O CÓDIGO A PARTIR DO EXP
     Teste: <if x > y then x := x + y,[x -> 3, y -> 2]>
-    Exp exp = new Soma(new Var("x"), new Num(4));
+        Exp exp = new Soma(new Var("x"), new Num(4));
         Comando c = new If(new BoolExp(new Bop(">"),new Var("x"),new Var("y")), new Atribuicao(new Var("x"),new Soma(new Var("x"),new Var("y"))));
+        Estado s = new Estado();
+        NumUBool n = new NumUBool(3); 
+        NumUBool n1 = new NumUBool(2);
+        s.adicionar("x", n);
+        s.adicionar("y", n1);
+        System.out.println("Teste 1: <"+ c+","+s+">");
+        while (!(c instanceof Skip)){
+            c = Intepretador.smallStep(c, s);
+            System.out.println("<"+ c +","+ s +">");
+        }
+        System.out.println("Final:" +  "<"+ c+","+s+">");
+    
+        System.out.println("--------------------------------------------------------------");
     */
 
     /*
+    COLAR DENTRO DA MAIN O CÓDIGO A PARTIR DO EXP
     Teste: <while x > y do inc y,[x -> 3, y -> 2]>
     Exp exp = new Soma(new Var("x"), new Num(4));
         Comando c = new While(new BoolExp(new Bop(">"),new Var("x"),new Var("y")),new Inc(new Var("y")));
+        Estado s = new Estado();
+        NumUBool n = new NumUBool(3); 
+        NumUBool n1 = new NumUBool(2);
+        s.adicionar("x", n);
+        s.adicionar("y", n1);
+        System.out.println("Teste 1: <"+ c+","+s+">");
+        while (!(c instanceof Skip)){
+            c = Intepretador.smallStep(c, s);
+            System.out.println("<"+ c +","+ s +">");
+        }
+        System.out.println("Final:" +  "<"+ c+","+s+">");
+    
+        System.out.println("--------------------------------------------------------------");
     */
+
+
+    /*
+    Teste: <any x,[x -> 3, y -> 2]>
+    Exp exp = new Soma(new Var("x"), new Num(4));
+        Comando c = new Any(new Var("x"));
+        Estado s = new Estado();
+        NumUBool n = new NumUBool(3); 
+        NumUBool n1 = new NumUBool(2);
+        s.adicionar("x", n);
+        s.adicionar("y", n1);
+        System.out.println("Teste 1: <"+ c+","+s+">");
+        while (!(c instanceof Skip)){
+            c = Intepretador.smallStep(c, s);
+            System.out.println("<"+ c +","+ s +">");
+        }
+        System.out.println("Final:" +  "<"+ c+","+s+">");
+    
+        System.out.println("--------------------------------------------------------------");
+
+        */
+
+    
 }

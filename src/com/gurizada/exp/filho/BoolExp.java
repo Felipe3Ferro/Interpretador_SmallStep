@@ -73,58 +73,6 @@ public class BoolExp extends Exp {
                 }
         }
         return this;
-
-
-        /*if (bop.getBop().equals("!")) {
-            if (!(exp1 instanceof Bool)) {
-                return new BoolExp(bop, exp1.transicao(s));
-            } else {
-                return new Bool(!((Bool) exp1).getValor());
-            }
-        } else if (bop.getBop().equals("&&")) {
-            if (!(exp1 instanceof Bool)) {
-                return new BoolExp(bop, exp1.transicao(s),exp2);
-            } else if(!(exp2 instanceof Bool)){
-                return new BoolExp(bop,exp1,exp2.transicao(s));
-            }else {
-                return new Bool(((Bool) exp1).getValor() && ((Bool) exp2).getValor());
-            }
-        } else if (bop.getBop().equals("||")) {
-            if (!(exp1 instanceof Bool)) {
-                return new BoolExp(bop, exp1.transicao(s),exp2);
-            } else if(!(exp2 instanceof Bool)){
-                return new BoolExp(bop,exp1,exp2.transicao(s));
-            }else {
-                return new Bool(((Bool) exp1).getValor() || ((Bool) exp2).getValor());
-            }
-        }else if (bop.getBop().equals(">")) {
-            if (!(exp1 instanceof Num)) {
-                return new BoolExp(bop, exp1.transicao(s),exp2);
-            } else if(!(exp2 instanceof Num)){
-                return new BoolExp(bop,exp1,exp2.transicao(s));
-            }else {
-                return new Bool(((Num) exp1).getValor() > ((Num) exp2).getValor());
-            }
-        }else if (bop.getBop().equals("<")) {
-            if (!(exp1 instanceof Num)) {
-                return new BoolExp(bop, exp1.transicao(s),exp2);
-            } else if(!(exp2 instanceof Num)){
-                return new BoolExp(bop,exp1,exp2.transicao(s));
-            }else {
-                return new Bool(((Num) exp1).getValor() < ((Num) exp2).getValor());
-            }
-        }else if (bop.getBop().equals("==")) {
-            if (!(exp1 instanceof Num)) {
-                return new BoolExp(bop, exp1.transicao(s),exp2);
-            } else if(!(exp2 instanceof Num)){
-                return new BoolExp(bop,exp1,exp2.transicao(s));
-            }else {
-                return new Bool(((Num) exp1).getValor() == ((Num) exp2).getValor());
-            }
-        }else{
-            return this;
-        }
-        */
     }
 
     @Override
